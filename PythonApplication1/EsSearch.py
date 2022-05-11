@@ -1,3 +1,5 @@
+import json
+
 from EsConfig import EsConfig
 
 
@@ -15,3 +17,9 @@ class EsSearch(EsConfig):
         self.data['query']['bool']['must'].append(data)
 
         return self
+
+    def search_filtered(self, data):
+        self.data.update(json.loads(data))
+
+        return self
+
