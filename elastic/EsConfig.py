@@ -1,12 +1,15 @@
 import http.client
 import json
 
+from decouple import config
+
 
 class EsConfig:
     def __init__(self):
-        self.conn = http.client.HTTPConnection("192.155.88.66:9200")
+        self.conn = http.client.HTTPConnection(config('ES_HOST'))
 
         self.data = {
+            "size": 5000,
             "query": {
                 "bool": {
                     "must": []

@@ -10,7 +10,7 @@ class EsSearch(EsConfig):
     def search(self, value: str = None) -> object:
         data = {
             "query_string": {
-                "query": value
+                "query": value if value is not None else {}
             }
         }
 
