@@ -11,7 +11,7 @@ def startServer():
 
 @app.route('/query', methods=['POST', 'GET'])
 def query():
-    db_query = Query()
+    db_query = Query('mysql')
     db_query.createTables('users', [
         "id BIGINT(8) AUTO_INCREMENT PRIMARY KEY NOT NULL",
         "name VARCHAR(255)",
